@@ -29,8 +29,7 @@ class Map():
                     destination.is_explored = True
                     updated_map.add_destination(destination)
         
-        return updated_map
-    
+        return None
     def get_explored_destinations(self):
         return [destination for destination in self.destination_list if destination.is_explored]
 
