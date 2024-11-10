@@ -6,6 +6,9 @@ class Coordinator():
         data_engine = DataEngine()
         self.map : Map = data_engine.load_map()
 
+    def reset(self):
+        self.map.reset_unlocked_destinations()
+        
     def get_map_dict(self):
         map = self.map.to_dict()
         return map

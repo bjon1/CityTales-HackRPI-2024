@@ -4,6 +4,10 @@ class Map():
     def __init__(self, destination_list):
         self.destination_list : list = destination_list
 
+    def reset_unlocked_destinations(self):
+        for destination in self.destination_list:
+            destination.is_explored = False
+            
     def get_destination_list(self):
         return self.destination_list
     

@@ -19,6 +19,8 @@ class DataEngine():
 
         # Convert JSON data into Map objects
         world_map = Map.from_dict(world_map)
+        #temporary for demo purposes
+        world_map.reset_unlocked_destinations()
         return world_map
     
     @staticmethod
