@@ -15,7 +15,9 @@ def get_map():
 
 @app.route('/api/reset', methods=['GET'])
 def reset():
-    coordinator.reset(), 200
+    coordinator.reset()
+    d = {"very good", "very well"}
+    return jsonify(d), 200
 
 @app.route('/api/check_radius_explored', methods=['GET'])
 def check_radius_explored():
