@@ -12,7 +12,5 @@ class Coordinator():
 
     def check_radius_explored(self, coordinates, radius):
         updated_map : Map = self.map.check_radius_explored(coordinates, radius)
-        if len(updated_map.destination_list) == 0:
-            return None
         updated_map = updated_map.to_dict()
         return updated_map
