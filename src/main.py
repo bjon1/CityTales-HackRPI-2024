@@ -24,7 +24,8 @@ def reset():
 def check_radius_explored():
     # Get coordinates and radius from query parameters
     coordinates_str = request.args.get('coordinates')  # e.g., "10.5,20.2"
-    radius = request.args.get('radius', default=10, type=int)
+    radius = request.args.get('radius')
+    radius = float(radius)
 
     # Check if coordinates were provided
     if not coordinates_str:
