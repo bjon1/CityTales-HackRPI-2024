@@ -14,7 +14,7 @@ class Map():
         x1 = coordinates[0]
         y1 = coordinates[1]
         
-        updated_locations = []
+        updated_map = Map()
 
         for destination in self.destination_list:
             destination_coordinates = destination.coordinates
@@ -27,9 +27,9 @@ class Map():
             if distance <= (radius):
                 if not destination.is_explored:
                     destination.is_explored = True
-                    updated_locations.append(destination.to_dict())
+                    updated_map.add_destination(destination)
         
-        return updated_locations
+        return updated_map
     
     def get_explored_destinations(self):
         return [destination for destination in self.destination_list if destination.is_explored]

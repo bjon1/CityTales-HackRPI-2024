@@ -11,6 +11,6 @@ class Coordinator():
         return map
 
     def check_radius_explored(self, coordinates, radius):
-        updated_list = self.map.check_radius_explored(coordinates, radius)
-        updated_list = [destination.to_dict() for destination in updated_list]
-        return updated_list
+        updated_map : Map = self.map.check_radius_explored(coordinates, radius)
+        updated_map = updated_map.to_dict()
+        return updated_map

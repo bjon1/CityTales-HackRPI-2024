@@ -32,8 +32,9 @@ def check_radius_explored():
         return jsonify({"error": "Invalid 'coordinates' format. Expected format: 'x,y'."}), 400
 
     # Call the check_radius_explored method and return results
-    updated_list = coordinator.check_radius_explored(coordinates, radius)
-    return jsonify(updated_list), 200
+    updated_map = coordinator.check_radius_explored(coordinates, radius)
+
+    return jsonify(updated_map), 200
 
 if __name__ == '__main__':
     app.run(debug=True)
