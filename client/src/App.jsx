@@ -21,10 +21,37 @@ const App = () => {
     console.log(destinations)
   }, [])
   
+  const resetWindow = () => {
+    const reset = async () => {
+      await fetch('/api/reset')
+    }
+
+    reset()
+    window.location.reload()
+ 
+  }
 
   return (
     <>
-      <MapComponent destinations={destinations}/>
+      <MapComponent destinations={destinations} setDestinations={setDestinations}/>
+      <button 
+        onClick={() => resetWindow()} 
+        style={{
+            position: 'absolute',
+            top: '15px',
+            right: '15px',
+            backgroundColor: 'black',
+            color: 'white',
+            padding: '10px 20px',
+            border: 'none',
+            borderRadius: '5px',
+            cursor: 'pointer',
+            fontSize: '16px'
+        }}
+    >
+        Reset
+    </button>
+
     </>
   )
 }
