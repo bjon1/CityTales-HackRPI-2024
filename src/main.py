@@ -16,26 +16,26 @@ def get_map():
 @app.route('/api/check_radius_explored', methods=['GET'])
 def check_radius_explored():
     # Get coordinates and radius from query parameters
-    coordinates_str = request.args.get('coordinates')  # e.g., "10,20"
+    coordinates_str = request.args.get('coordinates')  # e.g., "10.5,20.2"
     radius = request.args.get('radius', default=10, type=int)
 
     # Check if coordinates were provided
     if not coordinates_str:
         return jsonify({"error": "Missing 'coordinates' parameter"}), 400
 
-    # Parse coordinates string into a list of integers
+    # Parse coordinates string into a list of floats (or integers)
     try:
-        coordinates = [int(x) for x in coordinates_str.split(",")]
+        coordinates = [float(x) for x in coordinates_str.split(",")]
         if len(coordinates) != 2:
             raise ValueError("Coordinates must have exactly two values.")
     except ValueError:
-        return jsonify({"error": "Invalid 'coordinates' format. Expected format: 'x,y'."}), 400
+        return jsonify({"error": "Invalid 'coordinates' format. Expected format: 'x,y' with numeric values."}), 400
 
     # Call the check_radius_explored method and return results
     updated_map = coordinator.check_radius_explored(coordinates, radius)
     if updated_map:
         return jsonify(updated_map), 200
-    
+
     return None, 201
 
 if __name__ == '__main__':
