@@ -7,6 +7,9 @@ class Map():
     def get_destination_list(self):
         return self.destination_list
     
+    def add_destination(self, destination : Destination):
+        self.destination_list.append(destination)
+
     def check_radius_explored(self, coordinates : list, radius : int):
         x1 = coordinates[0]
         y1 = coordinates[1]
