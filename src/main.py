@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request
 from coordinator import Coordinator
-
+from map import Map
 app = Flask(__name__)
 coordinator : Coordinator = Coordinator()
 
@@ -16,8 +16,9 @@ def get_map():
 @app.route('/api/reset', methods=['GET'])
 def reset():
     coordinator.reset()
-    d = {"very good", "very well"}
-    return jsonify(d), 200
+    map = Map([])
+    map = map.to_dict()
+    return jsonify(map), 200
 
 @app.route('/api/check_radius_explored', methods=['GET'])
 def check_radius_explored():
