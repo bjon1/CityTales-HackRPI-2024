@@ -33,8 +33,10 @@ def check_radius_explored():
 
     # Call the check_radius_explored method and return results
     updated_map = coordinator.check_radius_explored(coordinates, radius)
-
-    return jsonify(updated_map), 200
+    if updated_map:
+        return jsonify(updated_map), 200
+    
+    return None, 201
 
 if __name__ == '__main__':
     app.run(debug=True)
