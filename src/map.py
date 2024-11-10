@@ -14,7 +14,7 @@ class Map():
         x1 = coordinates[0]
         y1 = coordinates[1]
         
-        updated_map = Map()
+        updated_map = Map([])
 
         for destination in self.destination_list:
             destination_coordinates = destination.coordinates
