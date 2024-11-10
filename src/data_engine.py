@@ -8,16 +8,17 @@ class DataEngine():
             with open("map.json", "r") as file:
                 world_map = json.load(file)
         except FileNotFoundError:
-            print(f"The file map.json does not exist.")
-            print(f"Creating players.json file...")
+            print("The file map.json does not exist.")
+            print("Creating map.json file...")
 
             with open("map.json", "w") as file:
                 json.dump([], file)
 
-            print(f"map.json created")
-            return []
+            print("map.json created")
+            return Map([])
 
-        world_map = [Map.from_dict(map_data) for map_data in world_map]
+        # Convert JSON data into Map objects
+        world_map = Map.from_dict(world_map)
         return world_map
     
     @staticmethod
