@@ -17,11 +17,11 @@ const UserPosition = ({destinations, setDestinations}) => {
         }
         console.log(position)
     };
-    
+
     const fetchAreaExplored = async (coords) => {
         try {
             const coordinatesStr = `${coords[0]},${coords[1]}`;
-            const radius = 0.01;
+            const radius = 0.003;
             const response = await fetch(`/api/check_radius_explored?coordinates=${coordinatesStr}&radius=${radius}`);
             const updatedDestinations = await response.json();
             
