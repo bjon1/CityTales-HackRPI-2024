@@ -4,9 +4,13 @@ from coordinator import Coordinator
 app = Flask(__name__)
 coordinator : Coordinator = Coordinator()
 
-@app.route('/get/map')
+@app.route('/')
+def api():
+    return "Hi this is API"
+
+@app.route('/api/destinations', methods=['GET'])
 def get_map():
-    map = coordinator.get_map()
+    map = coordinator.get_map_dict()
     return jsonify(map), 200
 
 @app.route('/check_radius_explored', methods=['GET'])
@@ -30,3 +34,6 @@ def check_radius_explored():
     # Call the check_radius_explored method and return results
     updated_list = coordinator.check_radius_explored(coordinates, radius)
     return jsonify(updated_list), 200
+
+if __name__ == '__main__':
+    app.run(debug=True)

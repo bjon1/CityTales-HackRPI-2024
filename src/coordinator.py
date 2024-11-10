@@ -7,8 +7,7 @@ class Coordinator():
         self.map : Map = data_engine.load_map()
 
     def get_map_dict(self):
-        map : Map = self.map.get_destination_list()
-        map = map.to_dict()
+        map = self.map.to_dict()
         return map
 
     def check_radius_explored(self, coordinates, radius):
