@@ -13,7 +13,7 @@ def get_map():
     map = coordinator.get_map_dict()
     return jsonify(map), 200
 
-@app.route('/check_radius_explored', methods=['GET'])
+@app.route('/api/check_radius_explored', methods=['GET'])
 def check_radius_explored():
     # Get coordinates and radius from query parameters
     coordinates_str = request.args.get('coordinates')  # e.g., "10,20"
