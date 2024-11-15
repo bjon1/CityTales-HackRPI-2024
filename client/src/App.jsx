@@ -48,9 +48,9 @@ const App = () => {
             cursor: 'pointer',
             fontSize: '16px'
         }}
-    >
-        Reset
-    </button>
+      >
+          Reset
+      </button>
 
     </>
   )

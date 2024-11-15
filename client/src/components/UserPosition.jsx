@@ -6,8 +6,6 @@ const UserPosition = ({destinations, setDestinations}) => {
     const [position, setPosition] = useState({ lat: 40.705203, lng: -73.888930 });
     const [updatedDestinations, setUpdatedDestinations ] = useState([{}])
 
-
-
     const handleDrag = (e) => {
         if (e.latLng) {
             setPosition({
@@ -21,7 +19,7 @@ const UserPosition = ({destinations, setDestinations}) => {
     const fetchAreaExplored = async (coords) => {
         try {
             const coordinatesStr = `${coords[0]},${coords[1]}`;
-            const radius = 0.003;
+            const radius = 0.005;
             const response = await fetch(`/api/check_radius_explored?coordinates=${coordinatesStr}&radius=${radius}`);
             const updatedDestinations = await response.json();
             
@@ -51,6 +49,7 @@ const UserPosition = ({destinations, setDestinations}) => {
 
     return (
         <div>
+
             <AdvancedMarker
                 position={position}
                 gmpDraggable={true}
@@ -58,7 +57,9 @@ const UserPosition = ({destinations, setDestinations}) => {
                 onDrag={handleDrag} // Attach the onDrag handler
                 onDragEnd={handleCollision}
                 zIndex={999}
-            />
+            >
+                <img src={"https://i.imgur.com/yQ0WvpV.png'%7D"}/>
+            </AdvancedMarker>
         </div>
     );
 
