@@ -42,6 +42,7 @@ const MapComponent = ({ destinations, setDestinations }) => {
                             zIndex={1} // First marker with lower z-index
                         />
                         
+                        
                         {!destination.is_explored && (
                             <Marker
                                 key={`explored-${index}`}
